@@ -3,7 +3,7 @@
 <br>
 <div>
 <img src="assets/iPhone%2014%20Pro%20Space%20Black%20Mockup.png?raw=true" alt="img-iphne14" width="230px" margin-right="50px">
-<img src="assets/iMac%2027-inch%20Mockup.png?raw=true" alt="img-imac" width="640px">
+<img src="assets/iMac%2027-inch%20Mockup.png?raw=true" alt="img-imac" width="580px">
 </div>
 <br>
 <br>
