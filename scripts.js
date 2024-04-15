@@ -1,23 +1,35 @@
 let chave = "6b46ba426bf834bcbe70a4ee3a7fdc5a"
 
+function colocarNaTela(dados) {
+    console.log(dados)
 
-async function buscarCidade() {
-    let dados = await fetch("https://api.openweathermap.org/data/2.5/weather?q=londres&appid=6b46ba426bf834bcbe70a4ee3a7fdc5a").then(resposta => resposta.json())
+    document.querySelector(".cidade").innerHTML = "Tempo em " + dados.name
+    document.querySelector(".temp").innerHTML = Math.floor(dados.main.temp ) + "°C"
+    document.querySelector(".icone").src = "https://openweathermap.org/img/wn/" + dados.weather[0].icon +".png"
+    document.querySelector(".umidade").innerHTML = "umidade: " + dados.main.humidity + "%"
+}
+
+
+async function buscarCidade(cidade) {
+
+    let dados = await fetch("https://api.openweathermap.org/data/2.5/weather?q=" + cidade +
+
+        "&appid=6b46ba426bf834bcbe70a4ee3a7fdc5a&units=metric").then(resposta => resposta.json())
 
     // AWAIT = ESPERE 
     // FETCH -> FERRAMENTA DO JAVASCRIPT PARA ACESSAR  SERVIDORES
     // THEN -> ENTÃO
     /// JSON -> JAVASCRIPT OBJECT NOTATION ( O FORMATO QUE O JAVASCRIPT ENTENDE)
+    // Math.floor -> Ferramenta do javascript para Arrendondar valores
 
-    console.log(dados)
 
+    colocarNaTela(dados)
 }
 
 function cliqueiNoBotao() {
     let cidade = document.querySelector(".input-cidade").value
 
 
-    buscarCidade()
+    buscarCidade(cidade)
 
 }
-
